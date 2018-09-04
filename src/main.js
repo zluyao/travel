@@ -3,7 +3,9 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';// 引入路由文件
+import './assets/styles/reset.css'; // 引入默认配置样式文件
 import './assets/styles/iconfont.css'; // 引入logo图标
+import './assets/styles/border.css'; // 引入1像素边框样式文件
 
 Vue.config.productionTip = false;
 
