@@ -1,0 +1,96 @@
+@charset "utf-8";
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight:normal; font-size:100%;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style:normal; font-weight:normal;
+}
+html {
+  font-size: 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background: #fff;
+  color: #555;
+  font-size: .28em;
+  line-height: 1;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+  -webkit-text-size-adjust: none;
+}
+ol,ul,li {
+  list-style:none;
+}
+a {
+  color: #25a4bb;
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+}
+fieldset,img { border:none; }
+input, textarea, select, button {
+  font:14px "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+mark{background-color:transparent}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+td,th,caption {
+  font-size:14px;
+}
+hr {
+  height: .02rem;
+  margin: .1rem 0;
+  border: medium none;
+  border-top: .02rem solid #cacaca;
+}
+
+/*公共类*/
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+.fl { float:left}
+.fr {float:right}
+.al {text-align:left}
+.ac {text-align:center}
+.ar {text-align:right}
+.hide {display:none}

@@ -1,0 +1,25 @@
+{
+  "ret": true,
+  "data": {
+    "sightName": "上海玛雅海滩水公园",
+    "bannerImg": "https://img1.qunarzz.com/sight/p0/1506/30/7a528fae12c17e6e29d5d13a9d9813ee.water.jpg_600x330_866232e3.jpg",
+    "galleryImgs": ["http://img1.qunarzz.com/sight/p0/1506/b9/0d356b635e50475966043c05a7792798.water.jpg_r_800x800_a0c11679.jpg", "http://img1.qunarzz.com/sight/p0/1506/30/7a528fae12c17e6e29d5d13a9d9813ee.water.jpg_r_800x800_47582402.jpg"],
+    "categoryList": [{
+        "title": "成人票",
+        "children": [{
+          "title": "成人三馆联票",
+          "children": [{
+            "title": "成人三馆联票 - 某一连锁店销售"
+          }]
+        },{
+          "title": "成人五馆联票"
+        }]
+      }, {
+        "title": "学生票"
+      }, {
+        "title": "儿童票"
+      }, {
+        "title": "特惠票"
+      }]
+  }
+}
