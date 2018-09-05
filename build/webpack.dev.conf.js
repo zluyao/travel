@@ -14,7 +14,7 @@ const express = require('express')
 const app = express()//请求server
 var homeData = require('../static/mock/index.json') // 加载本地数据文件
 var cityData = require('../static/mock/city.json')//加载本地数据文件
-var detailData = require('../static/mock/index.json')//加载本地数据文件
+var detailData = require('../static/mock/detail.json')//加载本地数据文件
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)//通过路由请求数据
 
