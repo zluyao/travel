@@ -11,23 +11,23 @@
                 <div class="swiper-pagination" slot="pagination"></div>
             </swiper>
         </section>
-        <section class="icon">
+        <section class="icons">
             <swiper :options="iconSwiperOption">
-                <swiper-slide  class="icon-silde">
-                    <ul>
-                        <li v-for="(slide, key) in iconsList" :key="key" data-id="slide.id">{{slide.text}}</li>
-                    </ul>
-                </swiper-slide>
-                <swiper-slide  class="icon-silde">
-                    <ul>
-                        <li v-for="(slide, key) in iconsList" :key="key" data-id="slide.id">{{slide.text}}</li>
+                <swiper-slide  class="icons-silde"  v-for="(slide, key) in iconsList" :key="key" >
+                    <ul class="icons-ul">
+                        <li class="icons-li" v-for="(value, key) in slide" :key="key" data-id="value.id">
+                            <router-link class="icons-link" to="/">
+                                <img class="icons-img" :src="value.imgSrc" alt="">
+                                <span>{{value.text}}</span>
+                            </router-link>
+                        </li>
                     </ul>
                 </swiper-slide>
                 <div class="swiper-pagination" slot="pagination"></div>
             </swiper>
         </section>
         <section class="favorite">
-            <h3 class="like-head"><i class="iconfont icon-like"></i>猜你喜欢</h3>
+            <h3 class="like-head border-bottom"><i class="iconfont icon-like"></i> 猜你喜欢</h3>
             <ul class="like-ul">
                 <li v-for="item in favoriteList">{{item.title}}</li>
             </ul>
@@ -74,25 +74,38 @@
         .then((res) => {
           this.content = res.data.data;
           this.swiperList = this.content.data.swiperList;
-          this.iconsList = this.content.data.iconsList;
           this.favoriteList = this.content.data.recommendList;
           this.weekendList = this.content.data.weekendList;
-          console.log(this.iconsList);
+          this.iconsList = this.arrTrans(8, this.content.data.iconsList);
         }).catch((err) => {
           console.log(err);
         });
     },
     methods: {
+      arrTrans: function(num, arr) { // 一维数组转换为二维数组
+        let iconsArr = [];
+        for (let i = 0; i < Math.ceil(arr.length / num); i++) {
+          iconsArr[i] = [];
+          for (let j = 0; j < num && j + num * i < arr.length; j++) {
+            iconsArr[i].push(arr[j + num * i]);
+          }
+        }
+        return iconsArr;
+      },
     },
   };
 </script>
 
 <style >
-.swiper-pagination-bullet-active{
+.swiper .swiper-pagination-bullet-active{
     background-color: #FFF;
+    /* 改变轮播图下方分页按钮颜色*/
 }
 </style>
 <style scoped>
+    .home{
+        background-color: #F5F5F5;
+    }
     .head{
         display: flex;
         flex-wrap: nowrap;
@@ -143,5 +156,43 @@
     .swp-img{
         height: 100%;
         width: 100%;
+    }
+    .icons{
+        height: 190px;
+        margin: 6px 0 8px;
+        background-color: #FFF;
+    }
+    .icons-silde{
+        height: 190px;
+    }
+    .icons-ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .icons-li{
+        flex: 0 1 25%;
+        margin: 5px 0;
+    }
+    .icons-link{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        color: #333;
+        text-decoration: none;
+    }
+    .icons-img{
+        height: 55px;
+        width: 55px;
+    }
+    .favorite{
+        background-color: #FFF;
+    }
+    .like-head{
+        padding: 8px 12px;
+        line-height: 26px;
+        font-size: 16px;
+    }
+    .icon-like{
+        color: #ff6b48;
     }
 </style>
