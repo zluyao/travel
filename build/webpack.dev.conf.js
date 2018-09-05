@@ -13,9 +13,8 @@ const portfinder = require('portfinder')
 const express = require('express')
 const app = express()//请求server
 var homeData = require('../static/mock/index.json') // 加载本地数据文件
-// var cityData = require('../static/mock/city.json')//加载本地数据文件
-// var detailData = require('../static/mock/index.json')//加载本地数据文件
-var home = homeData.data // 获取对应的本地数据
+var cityData = require('../static/mock/city.json')//加载本地数据文件
+var detailData = require('../static/mock/index.json')//加载本地数据文件
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)//通过路由请求数据
 
@@ -60,7 +59,19 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             errno: 0,
             data: homeData
           })
-        }) // 接口返回json数据，上面配置的数据seller就赋值给data请求后调用
+        }),  // 接口返回json数据，上面配置的数据seller就赋值给data请求后调用
+          app.get('/api/city', (req, res) => {
+            res.json({
+              errno: 0,
+              data: cityData
+            })
+          }),
+          app.get('/api/detail', (req, res) => {
+            res.json({
+              errno: 0,
+              data: detailData
+            })
+          })
     }
   },
   plugins: [
