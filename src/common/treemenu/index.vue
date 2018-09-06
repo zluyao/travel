@@ -24,7 +24,7 @@
     created() {
     },
     mounted() {
-      console.log(this.treelist);
+      // console.log(this.treelist);
     },
   };
 </script>
