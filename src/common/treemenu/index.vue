@@ -3,7 +3,7 @@
         <li class="tree-li"  v-for="(item, index) in treelist" :key="index">
             <div class="my-border border-bottom">
                 <i class="tree-icon"></i>
-                <div>{{item.title}}</div>
+                <div class="tree-content">{{item.title}}</div>
             </div>
             <treemenu class="children" :treelist="item.children" :parent="item"
                       v-show="treelist[index].children">
@@ -46,5 +46,10 @@
         background: url(http://s.qunarzz.com/piao/image/touch/sight/detail.png) 0 -22.5px no-repeat;
         background-size: 20px 150px;
         margin-right: 5px;
+    }
+    .tree-content{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 </style>

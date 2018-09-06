@@ -1,5 +1,5 @@
 <template>
-    <div class="detail"  v-if="content">
+    <div class="detail" v-if="content">
         <transition name="main" class="main">
             <div v-show="!swiperOn">
                 <section class="img">
@@ -115,7 +115,9 @@
     }
     .img-title{
         font-size: 18px;
-
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     .img-number{
         font-size: 10px;

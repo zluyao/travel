@@ -43,5 +43,8 @@
         margin-top: 8px;
         line-height: 20px;
         color: #666;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 </style>

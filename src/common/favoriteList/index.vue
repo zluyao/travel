@@ -48,6 +48,11 @@
         margin-top: 8px;
         line-height: 20px;
         color: #666;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
     .like-btn{
         padding: 4px 16px;

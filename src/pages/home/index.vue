@@ -158,9 +158,6 @@
         border-right: 7px solid transparent;
         border-top: 7px solid #FFF;
     }
-    .swiper{
-        height: 100px;
-    }
     .swp-silde{
         height: 100%;
     }
