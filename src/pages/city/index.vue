@@ -65,7 +65,7 @@
       return {
         hotCities: null,
         cities: null,
-        search: null,
+        search: '',
         scroll: null,
         scrollTwo: null,
         touch: {},
@@ -85,6 +85,9 @@
       setTimeout(() => {
         this._initSrcoll();
       }, 20);
+    },
+    activated() {
+      this.search = '';
     },
     computed: {
       searchResult: function() {

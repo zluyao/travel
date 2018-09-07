@@ -3,10 +3,16 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 const debug = process.env.NODE_ENV !== 'production'; // 如果不是production环境，为true
+let defaultCity = '深圳';
+try {
+  if (localStorage.city) {
+    defaultCity = localStorage.city;
+  }
+} catch (error) { }
 
 export default new Vuex.Store({
   state: {
-    city: '深圳'
+    city: defaultCity,
   },
   mutations: {
     changeCity (state, city) {

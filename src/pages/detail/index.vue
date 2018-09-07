@@ -4,7 +4,10 @@
             <div v-show="!swiperOn">
                 <section class="img">
                     <header class="head">
-                        <router-link class="head-icon" to="/"><i  class="iconfont"></i></router-link>
+                        <router-link class="head-icon" to="/"><i class="iconfont"></i></router-link>
+                    </header>
+                    <header class="head-top" :style="{ opacity: myOpacity }">
+                        <router-link class="head-icon-top" to="/"><i class="iconfont icon-back"></i>{{content.sightName}}</router-link>
                     </header>
                     <div class="img-detail" @click="swiperOn=true" >
                         <img class="img-src" :src="content.bannerImg" :alt="content.sightName">
@@ -50,7 +53,9 @@
     data () {
       return {
         content: null,
+        scroll: null,
         swiperOn: false,
+        myOpacity: 0,
         swiperOption: {
           pagination: {
             el: '.swiper-pagination',
@@ -67,6 +72,21 @@
         }).catch((err) => {
           console.log(err);
         });
+    },
+    methods: {
+      menu() {
+        this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+        if (this.scroll > 50) {
+          if (this.scroll < 120) {
+            this.myOpacity = (this.scroll - 50) / 70;
+          } else {
+            this.myOpacity = 1;
+          }
+        }
+      },
+    },
+    mounted() {
+      window.addEventListener('scroll', this.menu);
     },
   };
 </script>
@@ -94,6 +114,33 @@
         font-size: 19px;
         font-weight: 900;
         color: #FFF;
+    }
+    .head-top{
+        opacity: 0;
+        z-index: 110;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 44px;
+        font-size: 19px;
+        line-height: 44px;
+        background-color: #00bcd4;
+    }
+    .head-icon-top{
+        display: block;
+        position: relative;
+        text-align: center;
+        color: #FFF;
+    }
+    .icon-back{
+        position: absolute;
+        top: 0;
+        left: 16px;
+        color: #FFF;
+        font-size: 19px;
+        font-weight: 900;
     }
     .img-des{
         position: absolute;
