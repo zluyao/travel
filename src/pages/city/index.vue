@@ -72,6 +72,8 @@
       };
     },
     created() {
+      // window.localStorage.setItem();
+      // this.search = window.localStorage.getItem('search');
       this.$http.get('./api/city')
         .then((res) => {
           this.cities = res.data.data.data.cities;
@@ -86,6 +88,7 @@
     },
     computed: {
       searchResult: function() {
+        // window.localStorage.setItem('search', this.search);
         // 使用字符串检索
         let result = [];
         if (this.search !== null) {
@@ -140,6 +143,7 @@
           for (let i = 0; i < this.cities[key].length; i++) {
             if (this.cities[key][i].id === cityIndex) {
               this.$store.commit('changeCity', this.cities[key][i].name);
+              // window.localStorage.removeItem('search');
               this.$router.push({ path: '/' });
               return;
             }

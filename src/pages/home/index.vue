@@ -115,7 +115,7 @@
 </script>
 
 <style >
-.home .swiper-pagination-bullet-active{
+.swiper .swiper-pagination-bullet-active{
     background-color: #FFF; /* 改变轮播图下方分页按钮颜色*/
 }
 </style>
