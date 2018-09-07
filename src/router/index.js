@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import home from '@/pages/home';
 import city from '@/pages/city';
 import detail from '@/pages/detail';
+import test from '@/pages/test';
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/detail/:id',
       name: 'detail',
       component: detail,
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: test,
     },
   ]
 });
