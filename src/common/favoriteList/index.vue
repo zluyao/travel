@@ -6,7 +6,7 @@
                 <h4 class="like-title">{{likeTitle}}</h4>
                 <aside class="like-des">{{desc}}</aside>
             </div>
-            <div>
+            <div class="like-bottom">
                 <span class="like-btn">查看详情</span>
             </div>
         </div>
@@ -32,8 +32,8 @@
         color: #333;
     }
     .like-img{
-        height: 100px;
-        width: 100px;
+        max-height: 100px;
+        max-width: 100px;
     }
     .like-content{
         display: flex;
@@ -51,10 +51,11 @@
         overflow : hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
     .like-btn{
+        display: inline-block;
         padding: 4px 16px;
         background-color: #ff8300;
         color: #FFF;

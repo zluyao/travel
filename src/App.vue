@@ -17,4 +17,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #222;
 }
+a:hover,a:focus {
+  text-decoration: none;
+}
 </style>

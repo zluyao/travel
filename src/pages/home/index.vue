@@ -3,7 +3,7 @@
         <header class="head">
             <div class="head-back"><i class="iconfont"></i></div>
             <div class="head-search"><i class="iconfont icon-search"></i>输入城市/景点/游玩主题</div>
-            <router-link class="head-place" to="/city">上海 <i class="icon-drop"></i></router-link>
+            <router-link class="head-place" to="/city">{{city}} <i class="icon-drop"></i></router-link>
         </header>
         <section class="swiper">
             <swiper :options="swiperOption">
@@ -80,6 +80,12 @@
         favoriteList: [],
         weekendList: [],
       };
+    },
+    computed: {
+      city: function() {
+        console.log(this.$store.state.city);
+        return this.$store.state.city;
+      }
     },
     created() {
       this.$http.get('./api/home')

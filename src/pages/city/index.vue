@@ -12,9 +12,12 @@
         </header>
         <section class="search-des"  v-show="search">
             <div class="wrapper" ref="searchWrapper">
-                <datalist  class="des-ul" v-show="searchResult">
-                    <option  class="des-li" v-for="(value, key) in searchResult" :key="key">{{value}}</option>
-                </datalist>
+                <ul  class="des-ul" v-show="searchResult">
+                    <li  class="des-li" v-for="(value, key) in searchResult"
+                             :data-index="value.id"
+                             @click="changeCity"
+                             :key="key">{{value.name}}</li>
+                </ul>
             </div>
         </section>
         <section class="city-content" v-show="!search">
@@ -23,13 +26,19 @@
                     <li>
                         <h4 class="city-index">热门城市</h4>
                         <ul class="hot-city-list">
-                            <li class="hot-city-name" v-for="(value, key) in hotCities" :key="key">{{value.name}}</li>
+                            <li class="hot-city-name" v-for="(value, key) in hotCities"
+                                :data-index="value.id"
+                                @click="changeCity"
+                                :key="key">{{value.name}}</li>
                         </ul>
                     </li>
                     <li v-for="(initials, key) in cities" :key="key" ref="listGroup">
                         <h4 class="city-index">{{key}}</h4>
                         <ul class="city-list">
-                            <li class="city-name" v-for="(value, key) in initials" :key="key">{{value.name}}</li>
+                            <li class="city-name" v-for="(value, key) in initials"
+                                :data-index="value.id"
+                                @click="changeCity"
+                                :key="key">{{value.name}}</li>
                         </ul>
                     </li>
                 </ul>
@@ -80,12 +89,12 @@
         // 使用字符串检索
         let result = [];
         if (this.search !== null) {
-          for (var key in this.cities) {
-            for (var i = 0; i < this.cities[key].length; i++) {
+          for (let key in this.cities) {
+            for (let i = 0; i < this.cities[key].length; i++) {
               if (this.cities[key][i].name.includes(this.search)) {
-                result.push(this.cities[key][i].name);
+                result.push(this.cities[key][i]);
               } else if (this.cities[key][i].spell.includes(this.search)) {
-                result.push(this.cities[key][i].name);
+                result.push(this.cities[key][i]);
               }
             }
           }
@@ -124,6 +133,18 @@
         // 计算最后的位置的index
         let index = this.touch.anchorIndex * 1 + delta; // * 1 是因为 this.touch.anchorIndex 是字符串，用 * 1 偷懒的转化一下
         this.scroll.scrollToElement(this.$refs.listGroup[index]);
+      },
+      changeCity (e) {
+        let cityIndex = e.target.getAttribute('data-index') * 1;
+        for (let key in this.cities) {
+          for (let i = 0; i < this.cities[key].length; i++) {
+            if (this.cities[key][i].id === cityIndex) {
+              this.$store.commit('changeCity', this.cities[key][i].name);
+              this.$router.push({ path: '/' });
+              return;
+            }
+          }
+        }
       },
     },
   };
@@ -170,11 +191,13 @@
     .icon-search{
         position: absolute;
         padding: 0 10px;
+        background-color: #FFF;
+        border-radius: 4px;
     }
     .search-input{
         width: 100%;
         height: 30px;
-        padding: 0 12px 0 30px;
+        padding: 0 12px;
         text-align: center;
         border-radius: 4px;
         border: none;
@@ -221,6 +244,7 @@
         top: 0;
         bottom: 0;
         content: '';
+        pointer-events: none;
         border-right: 1px solid #ddd;
         border-left: 1px solid #ddd;
     }
