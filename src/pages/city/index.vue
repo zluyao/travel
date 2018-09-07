@@ -12,9 +12,9 @@
         </header>
         <section class="search-des"  v-show="search">
             <div class="wrapper" ref="searchWrapper">
-                <ul class="des-ul" v-show="searchResult">
-                    <li class="des-li" v-for="(value, key) in searchResult" :key="key">{{value}}</li>
-                </ul>
+                <datalist  class="des-ul" v-show="searchResult">
+                    <option  class="des-li" v-for="(value, key) in searchResult" :key="key">{{value}}</option>
+                </datalist>
             </div>
         </section>
         <section class="city-content" v-show="!search">
