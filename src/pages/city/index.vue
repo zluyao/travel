@@ -112,14 +112,8 @@
     },
     methods: {
       _initSrcoll () {
-        this.scroll = new BScroll(this.$refs.cityWrapper, {
-          probeType: 3, // 1 监听事件的触发时间，1为即时触发，3为延迟到事件完毕后触发
-          click: true, // 是否启用click事件
-        });
-        this.scrollTwo = new BScroll(this.$refs.searchWrapper, {
-          probeType: 3, // 1 监听事件的触发时间，1为即时触发，3为延迟到事件完毕后触发
-          click: true, // 是否启用click事件
-        });
+        this.scroll = new BScroll(this.$refs.cityWrapper);
+        this.scrollTwo = new BScroll(this.$refs.searchWrapper);
       },
       onShortcutStart (e) {
         let index = e.target.getAttribute('data-index'); // 获取到绑定的 index
