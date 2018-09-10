@@ -9,7 +9,8 @@ import './assets/styles/iconfont.css'; // 引入logo图标
 import './assets/styles/border.css'; // 引入1像素边框样式文件
 import axios from 'axios'; // 消息请求
 import Vuex from 'vuex'; // 状态管理
-
+import fastclick from 'fastclick'; // 引入fastclick，解决click300ms延迟
+fastclick.attach(document.body);
 Vue.prototype.$http = axios;
 Vue.use(Vuex);
 Vue.config.productionTip = false;
