@@ -8,26 +8,24 @@ import test from '@/pages/test';
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: home,
-    },
-    {
-      path: '/city',
-      name: 'city',
-      component: city,
-    },
-    {
-      path: '/detail/:id',
-      name: 'detail',
-      component: detail,
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: test,
-    },
-  ]
+  routes: [{
+    path: '/',
+    name: 'home',
+    component: home,
+  }, {
+    path: '/city',
+    name: 'city',
+    component: city,
+  },{
+    path: '/detail/:id',
+    name: 'detail',
+    component: detail,
+  }, {
+    path: '/test',
+    name: 'test',
+    component: test,
+  }],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 });
