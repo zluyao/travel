@@ -1,5 +1,5 @@
 <template>
-    <div class="detail" v-if="content">
+    <div class="detail">
         <transition name="main" class="main">
             <div v-show="!swiperOn">
                 <section class="img">
@@ -7,28 +7,28 @@
                         <router-link class="head-icon" to="/"><i class="iconfont"></i></router-link>
                     </header>
                     <header class="head-top" :style="{ opacity: myOpacity }">
-                        <router-link class="head-icon-top" to="/"><i class="iconfont icon-back"></i>{{content.sightName}}</router-link>
+                        <router-link class="head-icon-top" to="/"><i class="iconfont icon-back"></i>{{sightName}}</router-link>
                     </header>
                     <div class="img-detail" @click="swiperOn=true" >
-                        <img class="img-src" :src="content.bannerImg" :alt="content.sightName">
+                        <img class="img-src" :src="bannerImg" :alt="sightName">
                         <div class="img-des">
-                            <h2 class="img-title">{{content.sightName}}</h2>
+                            <h2 class="img-title">{{sightName}}</h2>
                             <div class="img-number">
                                 <i class="iconfont"></i>
-                                <span> {{content.galleryImgs.length}}</span>
+                                <span> {{galleryImgs.length}}</span>
                             </div>
                         </div>
                     </div>
                 </section>
                 <section class="categoryList">
-                    <tree-menu :treelist="content.categoryList"></tree-menu>
+                    <tree-menu :treelist="list"></tree-menu>
                 </section>
             </div>
         </transition>
         <transition name="fade" class="fade">
             <section class="swp" v-show="swiperOn" @click="swiperOn=false">
                 <swiper class="swp-container" :options="swiperOption">
-                    <swiper-slide  class="swp-silde" v-for="(slide, key) in content.galleryImgs" :key="key" data-id="slide.id">
+                    <swiper-slide  class="swp-silde" v-for="(slide, key) in galleryImgs" :key="key" data-id="slide.id">
                         <img class="swp-img" :src="slide" alt="">
                     </swiper-slide>
                     <div class="swiper-pagination" slot="pagination"></div>
@@ -53,6 +53,10 @@
     data () {
       return {
         content: null,
+        list: [],
+        galleryImgs: [],
+        bannerImg: '',
+        sightName: '',
         scroll: null,
         swiperOn: false,
         myOpacity: 0,
@@ -69,6 +73,10 @@
       this.$http.get('./api/detail')
         .then((res) => {
           this.content = res.data.data.data;
+          this.list = this.content.categoryList;
+          this.bannerImg = this.content.bannerImg;
+          this.galleryImgs = this.content.galleryImgs;
+          this.sightName = this.content.sightName;
         }).catch((err) => {
           console.log(err);
         });
