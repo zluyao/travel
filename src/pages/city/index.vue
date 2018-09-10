@@ -37,7 +37,7 @@
                         <ul class="city-list">
                             <li class="city-name" v-for="(value, key) in initials"
                                 :data-index="value.id"
-                                @click="changeCity"
+                                @click="changeCity(value.name)"
                                 :key="key">{{value.name}}</li>
                         </ul>
                     </li>
@@ -140,18 +140,22 @@
         let index = this.touch.anchorIndex * 1 + delta; // * 1 是因为 this.touch.anchorIndex 是字符串，用 * 1 偷懒的转化一下
         this.scroll.scrollToElement(this.$refs.listGroup[index]);
       },
-      changeCity (e) {
-        let cityIndex = e.target.getAttribute('data-index') * 1;
-        for (let key in this.cities) {
-          for (let i = 0; i < this.cities[key].length; i++) {
-            if (this.cities[key][i].id === cityIndex) {
-              this.$store.commit('changeCity', this.cities[key][i].name);
-              // window.localStorage.removeItem('search');
-              this.$router.push({ path: '/' });
-              return;
-            }
-          }
-        }
+      // changeCity (e) {
+      //   let cityIndex = e.target.getAttribute('data-index') * 1;
+      //   for (let key in this.cities) {
+      //     for (let i = 0; i < this.cities[key].length; i++) {
+      //       if (this.cities[key][i].id === cityIndex) {
+      //         this.$store.commit('changeCity', this.cities[key][i].name);
+      //         // window.localStorage.removeItem('search');
+      //         this.$router.push({ path: '/' });
+      //         return;
+      //       }
+      //     }
+      //   }
+      // },
+      changeCity (city) {
+        this.$store.commit('changeCity', city);
+        this.$router.push({path: '/'});
       },
     },
   };
