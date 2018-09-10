@@ -2,10 +2,10 @@
 
 > 这是一个简单的vue练手项目
 
-##使用第三方组件
+## 使用第三方组件
 vue+vuex+vue-router+axios+fastclick+swiper+scroll
 
-##主要难点
+## 主要难点
 1、主页创建轮播图（vue-awesome-swiper）
 2、在本地模拟请求数据（vue-resource）
 3、配置Eslint规则
