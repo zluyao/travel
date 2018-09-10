@@ -82,6 +82,8 @@
           } else {
             this.myOpacity = 1;
           }
+        } else {
+          this.myOpacity = 0;
         }
       },
     },
@@ -116,7 +118,6 @@
         color: #FFF;
     }
     .head-top{
-        opacity: 0;
         z-index: 110;
         position: fixed;
         top: 0;

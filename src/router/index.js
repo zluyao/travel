@@ -4,6 +4,7 @@ import home from '@/pages/home';
 import city from '@/pages/city';
 import detail from '@/pages/detail';
 import test from '@/pages/test';
+import vuexTest from '@/pages/test/vuexTest';
 
 Vue.use(Router);
 
@@ -16,7 +17,7 @@ export default new Router({
     path: '/city',
     name: 'city',
     component: city,
-  },{
+  }, {
     path: '/detail/:id',
     name: 'detail',
     component: detail,
@@ -24,8 +25,12 @@ export default new Router({
     path: '/test',
     name: 'test',
     component: test,
+  }, {
+    path: '/vuex',
+    name: 'vuexTest',
+    component: vuexTest,
   }],
   scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
+    return { x: 0, y: 0 };
   }
 });
