@@ -20,11 +20,8 @@
         parentList: [],
       };
     },
-    props: ['treelist', 'parent'],
+    props: ['treelist'],
     created() {
-    },
-    mounted() {
-      // console.log(this.treelist);
     },
   };
 </script>
