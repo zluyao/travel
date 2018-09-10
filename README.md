@@ -7,9 +7,13 @@ vue+vuex+vue-router+axios+fastclick+swiper+scroll
 
 ## 主要难点
 1、主页创建轮播图（vue-awesome-swiper）
+
 2、在本地模拟请求数据（vue-resource）
+
 3、配置Eslint规则
+
 4、字母索引导航(better-scroll)
+
 5、图片集合点击进行轮播(vue-awesome-swiper)
 6、动画(transition)
 7、缓存（keep-alive）
