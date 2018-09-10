@@ -13,6 +13,7 @@ try {
 export default new Vuex.Store({
   state: {
     city: defaultCity,
+    province: '河南',
   },
   mutations: {
     changeCity (state, city) {
@@ -26,5 +27,8 @@ export default new Vuex.Store({
   },
   strict: debug,
   getters: {
+    doubleCity (state) {
+      return state.province + ' ' + state.city;
+    }
   }
 });

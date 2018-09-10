@@ -19,6 +19,7 @@
     },
     created() {
       console.log(mapState);
+      console.log(this.$store.getters.doubleCity);
     },
     methods: {
     },
