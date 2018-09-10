@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 Vue.use(Vuex);
-const debug = process.env.NODE_ENV !== 'production'; // 如果不是production环境，为true
+const debug = process.env.NODE_ENV !== 'production'; // 如果不是production环境，为true，开启严格模式
 let defaultCity = '深圳';
 try {
   if (localStorage.city) {
